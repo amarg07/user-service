@@ -1,0 +1,25 @@
+version: '2.1'
+services:
+  user-service:
+    image: user-service
+    build: .
+    environment:
+      NODE_ENV: production
+    ports:
+      - 3000:8081
+  
+
+    depends_on: ["mongo", "redis"]
+    
+  mongo:
+    image: mongo
+    volumes:
+      - /home/amar/Downloads/docker-volumes:/data
+
+      
+
+  redis:
+    image: redis
+    volumes:
+      - /home/amar/Downloads/docker-volumes:/data
+ 
